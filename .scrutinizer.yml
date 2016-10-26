@@ -1,0 +1,58 @@
+filter:
+  excluded_paths:
+      - 'cache/*'
+      - 'Tests/*'
+      - 'vendor/*'
+
+before_commands:
+  - 'composer install'
+
+checks:
+  php:
+    code_rating: true
+    duplication: true
+
+coding_style:
+  php:
+    spaces:
+      around_operators:
+        concatenation: true
+
+build:
+  environment:
+    mysql: 5.5
+    postgresql: true
+    mongodb: false
+    elasticsearch: false
+    redis: false
+    memcached: false
+    neo4j: false
+    rabbitmq: false
+  dependencies:
+      before:
+        - 'sudo mysql -e "CREATE DATABASE phuria_test"'
+  tests:
+    override:
+      -
+        command: './vendor/bin/phpunit --configuration travis.phpunit.xml'
+        coverage:
+          file: 'coverage.clover'
+          format: 'clover'
+    after:
+      - 'wget https://scrutinizer-ci.com/ocular.phar'
+      - 'php ocular.phar code-coverage:upload --format=php-clover --repository="g/phuria/UnderQueryBundle" coverage.clover'
+
+tools:
+    external_code_coverage: true
+    php_mess_detector: true
+    php_code_sniffer: true
+    sensiolabs_security_checker: true
+    php_code_coverage: true
+    php_pdepend: true
+    php_loc:
+        enabled: true
+        excluded_dirs: [vendor, tests]
+    php_cpd:
+        enabled: true
+        excluded_dirs: [vendor, tests]
+    php_sim: false
