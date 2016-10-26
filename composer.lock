@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c25b632d3bb0e0a7db909496237990f4",
-    "content-hash": "7bc1b570c9aa1d50765087c2dfc22b60",
+    "hash": "bda0ec7fb5d137f05ba5768f9a2380f4",
+    "content-hash": "7b6d9bedeb1f268fd0127a2500296fdd",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -151,16 +151,16 @@
             "time": "2016-03-23 13:41:04"
         },
         {
-            "name": "phuria/sql-builder",
+            "name": "phuria/under-query",
             "version": "0.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/phuria/sql-builder.git",
+                "url": "https://github.com/phuria/under-query.git",
                 "reference": "1968b6e693053ce15d8c50a8cdc6b6171a880d80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phuria/sql-builder/zipball/1968b6e693053ce15d8c50a8cdc6b6171a880d80",
+                "url": "https://api.github.com/repos/phuria/under-query/zipball/1968b6e693053ce15d8c50a8cdc6b6171a880d80",
                 "reference": "1968b6e693053ce15d8c50a8cdc6b6171a880d80",
                 "shasum": ""
             },
