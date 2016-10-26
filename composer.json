@@ -1,0 +1,36 @@
+{
+  "name": "phuria/under-query-bundle",
+  "description": "Symfony integration bundle for UnderQuery",
+  "homepage": "https://github.com/phuria/under-query-bundle",
+  "keywords": [
+    "query builder",
+    "sql",
+    "bundle"
+  ],
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Beniamin Jonatan Šimko",
+      "email": "spam@simko.it",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0",
+    "symfony/framework-bundle": "^2.3|^3.0",
+    "symfony/dependency-injection": "^2.3|^3.0",
+    "phuria/sql-builder": "0.5.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.5",
+    "symfony/var-dumper": "^3.1",
+    "symfony/yaml": "^2.3|^3.0",
+    "doctrine/doctrine-bundle": "^1.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Phuria\\UnderQueryBundle\\": ""
+    }
+  }
+}

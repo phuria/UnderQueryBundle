@@ -1,0 +1,11 @@
+phuria_sql_builder:
+  connections:
+    - {service: database_connection}
+
+doctrine:
+  dbal:
+    connections:
+      default:
+        dbname: %database.dbname%
+        user: %database.user%
+        password: %database.password%
