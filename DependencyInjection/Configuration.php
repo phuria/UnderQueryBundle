@@ -26,7 +26,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $tree = new TreeBuilder();
-        $root = $tree->root('phuria_sql_builder');
+        $root = $tree->root('phuria_under_query');
 
         /** @var ArrayNodeDefinition $connections */
         $connections = $root->children()->arrayNode('connections')->prototype('array');

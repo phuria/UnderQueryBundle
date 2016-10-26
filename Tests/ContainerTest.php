@@ -11,10 +11,10 @@
 
 namespace Phuria\UnderQueryBundle\Tests;
 
-use Phuria\SQLBuilder\Connection\ConnectionManagerInterface;
+use Phuria\UnderQuery\Connection\ConnectionManagerInterface;
 use Phuria\UnderQueryBundle\Connection\DoctrineConnection;
-use Phuria\UnderQueryBundle\Service\QueryBuilderFactory;
 use Doctrine\DBAL\Driver\Connection as DBALConnectionInterface;
+use Phuria\UnderQueryBundle\Service\UnderQuery;
 
 /**
  * @author Beniamin Jonatan Šimko <spam@simko.it>
@@ -27,7 +27,8 @@ class ContainerTest extends TestCase
     public function itHasQueryBuilderFactory()
     {
         $container = $this->getContainer();
-        static::assertInstanceOf(QueryBuilderFactory::class, $container->get('phuria.sql_builder'));
+        static::assertInstanceOf(UnderQuery::class, $container->get('phuria_under_query'));
+        static::assertSame($container->get('under_query'), $container->get('phuria_under_query'));
     }
 
     /**
@@ -40,12 +41,12 @@ class ContainerTest extends TestCase
         $connection = $container->get('doctrine')->getConnection();
         static::assertInstanceOf(DBALConnectionInterface::class, $connection);
 
-        /** @var QueryBuilderFactory $qbFactory */
-        $qbFactory = $container->get('phuria.sql_builder');
+        /** @var UnderQuery $qbFactory */
+        $qbFactory = $container->get('under_query');
         $internalContainer = $qbFactory->getContainer();
 
         /** @var ConnectionManagerInterface $connectionManger */
-        $connectionManger = $internalContainer['phuria.sql_builder.connection_manager'];
+        $connectionManger = $internalContainer->get('phuria.sql_builder.connection_manager');
 
         static::assertInstanceOf(DoctrineConnection::class, $connectionManger->getConnection());
     }

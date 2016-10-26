@@ -13,8 +13,8 @@ namespace Phuria\UnderQueryBundle\Connection;
 
 use Doctrine\DBAL\Driver\Connection;
 use Doctrine\DBAL\Driver\Statement;
-use Phuria\SQLBuilder\Connection\ConnectionInterface;
-use Phuria\SQLBuilder\Parameter\QueryParameterInterface;
+use Phuria\UnderQuery\Connection\ConnectionInterface;
+use Phuria\UnderQuery\Parameter\QueryParameterInterface;
 
 /**
  * @author Beniamin Jonatan Šimko <spam@simko.it>

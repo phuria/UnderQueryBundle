@@ -1,4 +1,4 @@
-phuria_sql_builder:
+phuria_under_query:
   connections:
     - {service: database_connection}
 

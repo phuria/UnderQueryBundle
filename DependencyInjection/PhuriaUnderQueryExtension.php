@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 /**
  * @author Beniamin Jonatan Šimko <spam@simko.it>
  */
-class PhuriaSQLBuilderExtension extends Extension
+class PhuriaUnderQueryExtension extends Extension
 {
     /**
      * @inheritdoc
@@ -30,10 +30,10 @@ class PhuriaSQLBuilderExtension extends Extension
         $loader->load('services.xml');
         $processedConfig = $this->processConfiguration(new Configuration(), $configs);
 
-        $factoryDefinition = $container->getDefinition('phuria.sql_builder');
+        $underQueryDefinition = $container->getDefinition('phuria_under_query');
 
         foreach ($processedConfig['connections'] as $connection) {
-            $factoryDefinition->addMethodCall('registerConnectionService', [$connection['service']]);
+            $underQueryDefinition->addMethodCall('registerConnectionService', [$connection['service']]);
         }
     }
 }

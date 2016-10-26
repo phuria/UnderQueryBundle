@@ -11,14 +11,14 @@
 
 namespace Phuria\UnderQueryBundle\Service;
 
-use Phuria\SQLBuilder\QueryBuilderFactory as BaseFactory;
+use Phuria\UnderQuery\UnderQuery as BaseFactory;
 use Phuria\UnderQueryBundle\Connection\DoctrineConnection;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * @author Beniamin Jonatan Šimko <spam@simko.it>
  */
-class QueryBuilderFactory extends BaseFactory
+class UnderQuery extends BaseFactory
 {
     /**
      * @var ContainerInterface

@@ -4,9 +4,36 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ae1bdf65a9498a762819212edadd9c6c",
-    "content-hash": "fb231c03b40706d06f3dac2a6596ec6c",
+    "hash": "c25b632d3bb0e0a7db909496237990f4",
+    "content-hash": "7bc1b570c9aa1d50765087c2dfc22b60",
     "packages": [
+        {
+            "name": "container-interop/container-interop",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/container-interop/container-interop.git",
+                "reference": "fc08354828f8fd3245f77a66b9e23a6bca48297e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/container-interop/container-interop/zipball/fc08354828f8fd3245f77a66b9e23a6bca48297e",
+                "reference": "fc08354828f8fd3245f77a66b9e23a6bca48297e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Container\\": "src/Interop/Container/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
+            "time": "2014-12-30 15:22:37"
+        },
         {
             "name": "doctrine/cache",
             "version": "dev-master",
@@ -125,35 +152,38 @@
         },
         {
             "name": "phuria/sql-builder",
-            "version": "0.4.0",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phuria/sql-builder.git",
-                "reference": "9a91b70a413cc00e58e62958bef3a118a8ad9af7"
+                "reference": "1968b6e693053ce15d8c50a8cdc6b6171a880d80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phuria/sql-builder/zipball/9a91b70a413cc00e58e62958bef3a118a8ad9af7",
-                "reference": "9a91b70a413cc00e58e62958bef3a118a8ad9af7",
+                "url": "https://api.github.com/repos/phuria/sql-builder/zipball/1968b6e693053ce15d8c50a8cdc6b6171a880d80",
+                "reference": "1968b6e693053ce15d8c50a8cdc6b6171a880d80",
                 "shasum": ""
             },
             "require": {
+                "container-interop/container-interop": "^1.1",
                 "league/pipeline": "^0.2.2",
                 "php": ">=5.6.0",
                 "pimple/pimple": "^3.0"
             },
             "require-dev": {
+                "humbug/humbug": "*",
                 "phpunit/dbunit": "^2.0",
                 "phpunit/phpunit": "^5.5",
                 "symfony/var-dumper": "^3.1"
             },
+            "suggest": {
+                "phuria/sql-builder-bundle": "To integrate with Symfony."
+            },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "": [
-                        "src/",
-                        "tests/"
-                    ]
+                    "Phuria\\UnderQuery\\": "src",
+                    "Phuria\\UnderQuery\\Tests\\": "tests"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -167,13 +197,15 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Query builder for PHP.",
+            "description": "Lightweight PHP Query Builder primarily focused on building reusable SQL queries.",
             "homepage": "https://github.com/phuria/sql-builder",
             "keywords": [
-                "query builder",
+                "builder",
+                "mysql",
+                "query",
                 "sql"
             ],
-            "time": "2016-10-17 10:25:03"
+            "time": "2016-10-26 18:09:01"
         },
         {
             "name": "pimple/pimple",
