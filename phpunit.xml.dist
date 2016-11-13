@@ -12,7 +12,7 @@
         bootstrap                   = "vendor/autoload.php" >
 
     <php>
-        <var name="DB_DSN" value="mysql:dbname=phuria_test;host=localhost"/>
+        <var name="DB_HOST" value="localhost"/>
         <var name="DB_USER" value="root"/>
         <var name="DB_PASSWORD" value=""/>
         <var name="DB_DBNAME" value="phuria_test"/>

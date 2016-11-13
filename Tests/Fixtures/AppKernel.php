@@ -48,7 +48,8 @@ class AppKernel extends Kernel
         return array_merge(parent::getEnvParameters(), [
             'database.user'     => $GLOBALS['DB_USER'],
             'database.password' => $GLOBALS['DB_PASSWORD'],
-            'database.dbname'   => $GLOBALS['DB_DBNAME']
+            'database.dbname'   => $GLOBALS['DB_DBNAME'],
+            'database.host'     => $GLOBALS['DB_HOST']
         ]);
     }
 }

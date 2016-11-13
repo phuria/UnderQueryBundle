@@ -11,10 +11,8 @@
 
 namespace Phuria\UnderQueryBundle\Tests;
 
-use Phuria\UnderQuery\Connection\ConnectionManagerInterface;
-use Phuria\UnderQueryBundle\Connection\DoctrineConnection;
-use Doctrine\DBAL\Driver\Connection as DBALConnectionInterface;
-use Phuria\UnderQueryBundle\Service\UnderQuery;
+use Doctrine\DBAL\Driver\Connection as ConnectionInterface;
+use Phuria\UnderQuery\UnderQuery;
 
 /**
  * @author Beniamin Jonatan Šimko <spam@simko.it>
@@ -37,17 +35,11 @@ class ContainerTest extends TestCase
     public function itHasDoctrineConnection()
     {
         $container = $this->getContainer();
-        /** @var DBALConnectionInterface $connection */
         $connection = $container->get('doctrine')->getConnection();
-        static::assertInstanceOf(DBALConnectionInterface::class, $connection);
 
-        /** @var UnderQuery $qbFactory */
-        $qbFactory = $container->get('under_query');
-        $internalContainer = $qbFactory->getContainer();
+        /** @var UnderQuery $uq */
+        $uq = $container->get('under_query');
 
-        /** @var ConnectionManagerInterface $connectionManger */
-        $connectionManger = $internalContainer->get('phuria.sql_builder.connection_manager');
-
-        static::assertInstanceOf(DoctrineConnection::class, $connectionManger->getConnection());
+        static::assertSame($connection, $uq->getConnection());
     }
 }

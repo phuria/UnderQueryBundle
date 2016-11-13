@@ -11,7 +11,7 @@
 
 namespace Phuria\UnderQueryBundle\Tests;
 
-use Phuria\UnderQueryBundle\Service\UnderQuery;
+use Phuria\UnderQuery\UnderQuery;
 
 /**
  * @author Beniamin Jonatan Šimko <spam@simko.it>
@@ -23,12 +23,11 @@ class DoctrineTest extends TestCase
      */
     public function itExecuteSimpleQuery()
     {
-        /** @var UnderQuery $qbFactory */
-        $qbFactory = $this->getContainer()->get('under_query');
-        $qb = $qbFactory->createSelect();
-        $qb->addSelect('1+1');
-        $scalar = $qb->buildQuery()->fetchScalar();
+        /** @var UnderQuery $uq */
+        $uq = $this->getContainer()->get('under_query');
+        $query = $uq->createSelect()->addSelect('1+1')->buildQuery();
 
-        static::assertSame('2', $scalar);
+        static::assertSame(1, $query->getResult()->columnCount());
+        static::assertSame('2', $query->getResult()->fetchColumn());
     }
 }

@@ -11,7 +11,6 @@
 
 namespace Phuria\UnderQueryBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -28,9 +27,7 @@ class Configuration implements ConfigurationInterface
         $tree = new TreeBuilder();
         $root = $tree->root('phuria_under_query');
 
-        /** @var ArrayNodeDefinition $connections */
-        $connections = $root->children()->arrayNode('connections')->prototype('array');
-        $connections->children()->scalarNode('service')->defaultNull();
+        $root->children()->scalarNode('connection')->defaultNull();
 
         return $tree;
     }

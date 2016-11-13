@@ -11,9 +11,11 @@
 
 namespace Phuria\UnderQueryBundle\DependencyInjection;
 
+use Phuria\UnderQuery\UnderQuery;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
@@ -30,10 +32,12 @@ class PhuriaUnderQueryExtension extends Extension
         $loader->load('services.xml');
         $processedConfig = $this->processConfiguration(new Configuration(), $configs);
 
-        $underQueryDefinition = $container->getDefinition('phuria_under_query');
+        $underQueryDefinition = $container->register('phuria_under_query', UnderQuery::class);
 
-        foreach ($processedConfig['connections'] as $connection) {
-            $underQueryDefinition->addMethodCall('registerConnectionService', [$connection['service']]);
+        if ($connection = $processedConfig['connection']) {
+            $underQueryDefinition->addArgument(new Reference($connection));
         }
+
+        $container->setAlias('under_query', 'phuria_under_query');
     }
 }

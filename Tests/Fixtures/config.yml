@@ -1,11 +1,11 @@
 phuria_under_query:
-  connections:
-    - {service: database_connection}
+  connection: database_connection
 
 doctrine:
   dbal:
     connections:
       default:
+        host: %database.host%
         dbname: %database.dbname%
         user: %database.user%
         password: %database.password%
