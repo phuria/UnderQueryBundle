@@ -27,7 +27,7 @@ class DoctrineTest extends TestCase
         $uq = $this->getContainer()->get('under_query');
         $query = $uq->createSelect()->addSelect('1+1')->buildQuery();
 
-        static::assertSame(1, $query->getResult()->columnCount());
-        static::assertSame('2', $query->getResult()->fetchColumn());
+        static::assertSame(1, $query->execute()->columnCount());
+        static::assertSame('2', $query->execute()->fetchColumn());
     }
 }
